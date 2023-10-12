@@ -1,1 +1,0 @@
-﻿Read SygenicTemplateLib/readme.md for details. Remove this file.
