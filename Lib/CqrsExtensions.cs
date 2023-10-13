@@ -7,13 +7,13 @@ public static class CqrsExtensions
 		services.Scan(x => x
 			.FromApplicationDependencies()
 			.AddClasses(x => x.AssignableTo(typeof(IQueryHandler<,>)))
-			.AsImplementedInterfaces()
+			.AsSelfWithInterfaces()
 			.WithTransientLifetime());
 
 		services.Scan(x => x
 			.FromApplicationDependencies()
 			.AddClasses(x => x.AssignableTo(typeof(ICommandHandler<>)))
-			.AsImplementedInterfaces()
+			.AsSelfWithInterfaces()
 			.WithTransientLifetime());
 
 		return services;
@@ -21,7 +21,9 @@ public static class CqrsExtensions
 
 	public static IServiceCollection TryAddCqrs(this IServiceCollection services)
 	{
-		services.TryAddTransient<IDispatcher, Dispatcher>();
+		services.TryAddSingleton<IQueryHandlerProvider, QueryHandlerProvider>();
+		services.TryAddTransient<ICommandDispatcher, CommandDispatcher>();
+		services.TryAddTransient<IQueryDispatcher, QueryDispatcher>();
 		
 		return services;
 	}

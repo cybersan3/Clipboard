@@ -5,7 +5,7 @@ public class Commands_work
 	[Fact]
 	public async Task _()
 	{
-		(var cmdDispatcher, var counterProvider) = X.Services.Get<IDispatcher, ICounterProvider>();
+		(var cmdDispatcher, var counterProvider) = X.Services.Get<ICommandDispatcher, ICounterProvider>();
 
 		var addCmd = new AddCommand(3);
 		await cmdDispatcher.ExecuteCommandAsync(addCmd, CancellationToken.None);

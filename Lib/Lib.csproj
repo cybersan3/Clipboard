@@ -12,7 +12,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-rc.2.23479.6" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0-rc.2.23479.6" />
     <PackageReference Include="Scrutor" Version="4.2.2" />
-    <PackageReference Include="Sygenic.CommonLib" Version="1.0.2" />
+    <PackageReference Include="Sygenic.CommonLib" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>
