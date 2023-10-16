@@ -22,7 +22,7 @@ internal sealed class QueryHandlerProvider(IImplementationProvider implementatio
 		return mapping;
 	}
 
-	public Type GetHandlerForQuery<RESPONSE>(IQuery<RESPONSE> query)
+	public Type GetHandlerForQuery<TResponse>(IQuery<TResponse> query)
 	{
 		var queryType = query.GetType();
 		if (Mapping.Value.TryGetValue(queryType, out var handlerType)) return handlerType;
